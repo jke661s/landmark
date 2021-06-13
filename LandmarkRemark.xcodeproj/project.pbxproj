@@ -18,16 +18,19 @@
 		C4E488562675CA6800E95615 /* RoutingSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E488552675CA6800E95615 /* RoutingSource.swift */; };
 		C4E488582675CB0800E95615 /* TransitionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E488572675CB0800E95615 /* TransitionType.swift */; };
 		C4E4885A2675CC4200E95615 /* NavigatorProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E488592675CC4200E95615 /* NavigatorProviding.swift */; };
-		C4E4885C2675CEBA00E95615 /* LandMarkDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4885B2675CEBA00E95615 /* LandMarkDetailsViewController.swift */; };
-		C4E4885E2675CEC600E95615 /* SaveLandMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4885D2675CEC600E95615 /* SaveLandMarkViewController.swift */; };
-		C4E488602675CED800E95615 /* SearchLandMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4885F2675CED800E95615 /* SearchLandMarkViewController.swift */; };
-		C4E488632675CF6200E95615 /* SaveLandMarkNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E488622675CF6200E95615 /* SaveLandMarkNavigator.swift */; };
+		C4E4885C2675CEBA00E95615 /* LandmarkDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4885B2675CEBA00E95615 /* LandmarkDetailsViewController.swift */; };
+		C4E4885E2675CEC600E95615 /* SaveLandmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4885D2675CEC600E95615 /* SaveLandmarkViewController.swift */; };
+		C4E488602675CED800E95615 /* SearchLandmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4885F2675CED800E95615 /* SearchLandmarkViewController.swift */; };
+		C4E488632675CF6200E95615 /* SaveLandmarkNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E488622675CF6200E95615 /* SaveLandmarkNavigator.swift */; };
 		C4E488662675D56200E95615 /* UIApplicationsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E488652675D56200E95615 /* UIApplicationsExtensions.swift */; };
-		C4E4886A2675F46900E95615 /* LandMarkDetailsNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E488692675F46900E95615 /* LandMarkDetailsNavigator.swift */; };
+		C4E4886A2675F46900E95615 /* LandmarkDetailsNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E488692675F46900E95615 /* LandmarkDetailsNavigator.swift */; };
 		C4E4886C2676047A00E95615 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4886B2676047A00E95615 /* MainViewModel.swift */; };
 		C4E4886F2676061000E95615 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4886E2676061000E95615 /* BaseViewController.swift */; };
 		C4E48872267606CC00E95615 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E48871267606CC00E95615 /* Strings.swift */; };
 		C4E488752676105F00E95615 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E488742676105F00E95615 /* Functions.swift */; };
+		C4E488772676155F00E95615 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E488762676155F00E95615 /* Bindable.swift */; };
+		C4E4887926761FF000E95615 /* AlertDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4887826761FF000E95615 /* AlertDisplay.swift */; };
+		C4E4887D2676352700E95615 /* PermissionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4887C2676352700E95615 /* PermissionError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,16 +47,19 @@
 		C4E488552675CA6800E95615 /* RoutingSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingSource.swift; sourceTree = "<group>"; };
 		C4E488572675CB0800E95615 /* TransitionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionType.swift; sourceTree = "<group>"; };
 		C4E488592675CC4200E95615 /* NavigatorProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorProviding.swift; sourceTree = "<group>"; };
-		C4E4885B2675CEBA00E95615 /* LandMarkDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandMarkDetailsViewController.swift; sourceTree = "<group>"; };
-		C4E4885D2675CEC600E95615 /* SaveLandMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLandMarkViewController.swift; sourceTree = "<group>"; };
-		C4E4885F2675CED800E95615 /* SearchLandMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLandMarkViewController.swift; sourceTree = "<group>"; };
-		C4E488622675CF6200E95615 /* SaveLandMarkNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLandMarkNavigator.swift; sourceTree = "<group>"; };
+		C4E4885B2675CEBA00E95615 /* LandmarkDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkDetailsViewController.swift; sourceTree = "<group>"; };
+		C4E4885D2675CEC600E95615 /* SaveLandmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLandmarkViewController.swift; sourceTree = "<group>"; };
+		C4E4885F2675CED800E95615 /* SearchLandmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLandmarkViewController.swift; sourceTree = "<group>"; };
+		C4E488622675CF6200E95615 /* SaveLandmarkNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLandmarkNavigator.swift; sourceTree = "<group>"; };
 		C4E488652675D56200E95615 /* UIApplicationsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationsExtensions.swift; sourceTree = "<group>"; };
-		C4E488692675F46900E95615 /* LandMarkDetailsNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandMarkDetailsNavigator.swift; sourceTree = "<group>"; };
+		C4E488692675F46900E95615 /* LandmarkDetailsNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkDetailsNavigator.swift; sourceTree = "<group>"; };
 		C4E4886B2676047A00E95615 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		C4E4886E2676061000E95615 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C4E48871267606CC00E95615 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		C4E488742676105F00E95615 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		C4E488762676155F00E95615 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
+		C4E4887826761FF000E95615 /* AlertDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplay.swift; sourceTree = "<group>"; };
+		C4E4887C2676352700E95615 /* PermissionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				C4E4884F2674C97F00E95615 /* Location.swift */,
+				C4E4887C2676352700E95615 /* PermissionError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -128,9 +135,9 @@
 			isa = PBXGroup;
 			children = (
 				C4E4884A26744F7700E95615 /* MainViewController.swift */,
-				C4E4885B2675CEBA00E95615 /* LandMarkDetailsViewController.swift */,
-				C4E4885D2675CEC600E95615 /* SaveLandMarkViewController.swift */,
-				C4E4885F2675CED800E95615 /* SearchLandMarkViewController.swift */,
+				C4E4885B2675CEBA00E95615 /* LandmarkDetailsViewController.swift */,
+				C4E4885D2675CEC600E95615 /* SaveLandmarkViewController.swift */,
+				C4E4885F2675CED800E95615 /* SearchLandmarkViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -170,8 +177,8 @@
 		C4E488612675CF3600E95615 /* Routing */ = {
 			isa = PBXGroup;
 			children = (
-				C4E488622675CF6200E95615 /* SaveLandMarkNavigator.swift */,
-				C4E488692675F46900E95615 /* LandMarkDetailsNavigator.swift */,
+				C4E488622675CF6200E95615 /* SaveLandmarkNavigator.swift */,
+				C4E488692675F46900E95615 /* LandmarkDetailsNavigator.swift */,
 			);
 			path = Routing;
 			sourceTree = "<group>";
@@ -196,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				C4E48871267606CC00E95615 /* Strings.swift */,
+				C4E4887826761FF000E95615 /* AlertDisplay.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -204,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				C4E488742676105F00E95615 /* Functions.swift */,
+				C4E488762676155F00E95615 /* Bindable.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -280,20 +289,23 @@
 				C4E4883326744E0100E95615 /* AppDelegate.swift in Sources */,
 				C4E488542675C99C00E95615 /* AppRouter.swift in Sources */,
 				C4E4884E2674C82800E95615 /* LocationService.swift in Sources */,
-				C4E4886A2675F46900E95615 /* LandMarkDetailsNavigator.swift in Sources */,
+				C4E4886A2675F46900E95615 /* LandmarkDetailsNavigator.swift in Sources */,
+				C4E4887926761FF000E95615 /* AlertDisplay.swift in Sources */,
 				C4E48872267606CC00E95615 /* Strings.swift in Sources */,
 				C4E4886F2676061000E95615 /* BaseViewController.swift in Sources */,
+				C4E4887D2676352700E95615 /* PermissionError.swift in Sources */,
 				C4E488502674C97F00E95615 /* Location.swift in Sources */,
-				C4E4885E2675CEC600E95615 /* SaveLandMarkViewController.swift in Sources */,
-				C4E488602675CED800E95615 /* SearchLandMarkViewController.swift in Sources */,
+				C4E4885E2675CEC600E95615 /* SaveLandmarkViewController.swift in Sources */,
+				C4E488602675CED800E95615 /* SearchLandmarkViewController.swift in Sources */,
 				C4E4886C2676047A00E95615 /* MainViewModel.swift in Sources */,
+				C4E488772676155F00E95615 /* Bindable.swift in Sources */,
 				C4E488582675CB0800E95615 /* TransitionType.swift in Sources */,
 				C4E488752676105F00E95615 /* Functions.swift in Sources */,
 				C4E4884B26744F7700E95615 /* MainViewController.swift in Sources */,
 				C4E4883526744E0100E95615 /* SceneDelegate.swift in Sources */,
 				C4E4885A2675CC4200E95615 /* NavigatorProviding.swift in Sources */,
-				C4E4885C2675CEBA00E95615 /* LandMarkDetailsViewController.swift in Sources */,
-				C4E488632675CF6200E95615 /* SaveLandMarkNavigator.swift in Sources */,
+				C4E4885C2675CEBA00E95615 /* LandmarkDetailsViewController.swift in Sources */,
+				C4E488632675CF6200E95615 /* SaveLandmarkNavigator.swift in Sources */,
 				C4E488662675D56200E95615 /* UIApplicationsExtensions.swift in Sources */,
 				C4E488562675CA6800E95615 /* RoutingSource.swift in Sources */,
 			);

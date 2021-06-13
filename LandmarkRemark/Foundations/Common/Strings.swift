@@ -8,24 +8,45 @@
 import Foundation
 
 struct Strings {
+    struct Error {
+        static let failToGetLocation = "Failed to get location"
+    }
+    
     struct FatalError {
         static let initCoderNotImplemented = "init(coder:) has not been implemented"
     }
     
-    static let empty = ""
+    struct Generic {
+        static let cancel = "Cancel"
+        static let ok = "OK"
+    }
+    
+    struct Alert {
+        struct Generic {
+            static let title = "Oops!"
+            static let message = "Something went wrong. Please try again later."
+        }
+        
+        struct LocationPermission {
+            static let title = "Permission Denied"
+            static let message = "Sorry. We do not have the location permission. Please go to setting to grant it and try again."
+        }
+    }
     
     struct ViewControllers {
         struct Main {
             static let title = "Home"
         }
         
-        struct LandMarkDetails {
+        struct LandmarkDetails {
             static let path = "landMarkDetails"
             static let landMarkId = "landMarkId"
         }
         
-        struct SaveLandMark {
-            static let path = "saveLandMark"
+        struct SaveLandmark {
+            static let path = "saveLandmark"
         }
     }
+    
+    static let empty = ""
 }

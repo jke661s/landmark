@@ -19,8 +19,8 @@ private extension AppDelegate {
     func onLaunch() {
         let router: AppRouterProviding = AppRouter.shared
         
-        router.register(path: Strings.ViewControllers.SaveLandMark.path, navigator: SaveLandMarkNavigator())
-        router.register(path: Strings.ViewControllers.LandMarkDetails.path, navigator: LandMarkDetailsNavigator())
+        router.register(path: Strings.ViewControllers.SaveLandmark.path, navigator: SaveLandmarkNavigator())
+        router.register(path: Strings.ViewControllers.LandmarkDetails.path, navigator: LandmarkDetailsNavigator())
     }
 }
 

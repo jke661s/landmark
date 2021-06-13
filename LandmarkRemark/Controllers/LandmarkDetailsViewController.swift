@@ -1,5 +1,5 @@
 //
-//  SearchLandMarkViewController.swift
+//  LandmarkDetailsViewController.swift
 //  LandmarkRemark
 //
 //  Created by Jackie Wang on 13/6/21.

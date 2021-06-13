@@ -74,4 +74,8 @@ final class LocationService: NSObject, LocationServiceProviding, CLLocationManag
         getLocationCompletion?(.success(Location(location)))
         getLocationCompletion = nil
     }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(Strings.Error.failToGetLocation + "\(error)")
+    }
 }

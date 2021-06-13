@@ -12,7 +12,8 @@ import UIKit
 ///   - object: The object to be initialized.
 ///   - closure: The configuration to the object.
 /// - Returns: An object configured well.
-func configure<T>(_ object: T, closure: (T) -> Void) -> T {
+func configure<T: UIView>(_ object: T, closure: (T) -> Void) -> T {
+    object.translatesAutoresizingMaskIntoConstraints = false
     closure(object)
     return object
 }

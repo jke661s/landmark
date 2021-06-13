@@ -27,6 +27,9 @@ protocol LocationServiceProviding {
 final class LocationService: NSObject, LocationServiceProviding, CLLocationManagerDelegate {
     // MARK: - Properties
     
+    /// Shared instance.
+    static let shared = LocationService()
+    
     /// Call back when successfully gets locations. The reason to do so is
     /// because location would be returned in `didUpdateLocations` function rather than `getLocation`.
     fileprivate var getLocationCompletion: GetLocationCompletion?
@@ -51,7 +54,7 @@ final class LocationService: NSObject, LocationServiceProviding, CLLocationManag
     /// - Parameter completion: A call to get location or error.
     func getLocation(completion: @escaping GetLocationCompletion) {
         getLocationCompletion = completion
-        locationManager.requestLocation()
+        locationManager.startUpdatingLocation()
     }
     
     // MARK: - CLLocationManagerDelegate conformance
@@ -61,7 +64,7 @@ final class LocationService: NSObject, LocationServiceProviding, CLLocationManag
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         case .authorizedAlways, .authorizedWhenInUse:
-            locationManager.requestLocation()
+            locationManager.startUpdatingLocation()
         default:
             getLocationCompletion?(.failure(.notAuthorization))
             getLocationCompletion = nil
@@ -70,12 +73,20 @@ final class LocationService: NSObject, LocationServiceProviding, CLLocationManag
     
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else { return }
+        locationManager.stopUpdatingLocation()
+        guard let location = locations.first else {
+            getLocationCompletion?(.failure(.notAuthorization))
+            getLocationCompletion = nil
+            return
+        }
         getLocationCompletion?(.success(Location(location)))
         getLocationCompletion = nil
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(Strings.Error.failToGetLocation + "\(error)")
+        locationManager.stopUpdatingLocation()
+        getLocationCompletion?(.failure(.notAuthorization))
+        getLocationCompletion = nil
     }
 }

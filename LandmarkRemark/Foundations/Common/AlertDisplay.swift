@@ -9,6 +9,7 @@ import UIKit
 
 typealias AlertActionHandler = (UIAlertAction) -> Void
 
+/// The alert action used in this project.
 enum LRAlertAction {
     case cancel
     case ok(actionHandler: AlertActionHandler?)
@@ -31,6 +32,7 @@ enum LRAlertAction {
         }
     }
     
+    /// The alert action that created depending on LRAlertAction.
     var alertAction: UIAlertAction {
         UIAlertAction(title: title,
                       style: .default,
@@ -38,13 +40,20 @@ enum LRAlertAction {
     }
 }
 
+/// The alert error type.
 enum AlertErrorType {
     case genericError
     case noPermissionError(errorType: PermissionError, handler: AlertActionHandler?)
 }
 
 protocol AlertDisplay {
+    /// To display generic error.
     func showGenericError()
+    
+    /// To display errors related to permissions.
+    /// - Parameters:
+    ///   - errorType: The values tells which permission has been denied.
+    ///   - handler: The action handler.
     func showPermissionError(errorType: PermissionError, with handler: AlertActionHandler?)
 }
 

@@ -11,10 +11,15 @@ import MapKit
 final class MainViewController: BaseViewController, AlertDisplay {
     // MARK: - Properties
     
+    /// MainViewController viewModel.
     private var viewModel: MainViewModelProviding!
+    
+    /// A map view displaying the user's location.
     private let mapView: MKMapView = configure(MKMapView()) {
         $0.showsUserLocation = true
     }
+    
+    /// A button to locate the user.
     private let locateMeButton: UIButton = configure(UIButton(type: .system)) {
         let configuration = UIImage.SymbolConfiguration(pointSize: 30)
         let image = UIImage(systemName: "record.circle", withConfiguration: configuration)
@@ -40,6 +45,7 @@ final class MainViewController: BaseViewController, AlertDisplay {
     }
     
     // MARK: - Private functions
+    
     private func setupViews() {
         view.backgroundColor = .systemBackground
         title = viewModel.title
@@ -66,6 +72,7 @@ final class MainViewController: BaseViewController, AlertDisplay {
     }
     
     private func setupBindings() {
+        // Zoom in to locate the user or display an alter
         viewModel.getLocationResult.bind { [weak self] result in
             guard let self = self, let result = result else { return }
             switch result {
@@ -76,7 +83,13 @@ final class MainViewController: BaseViewController, AlertDisplay {
                     self.mapView.setRegion(coordinateRegion, animated: true)
                 }
             case .failure:
-                self.showPermissionError(errorType: .location, with: nil)
+                self.showPermissionError(errorType: .location) { _ in
+                    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString),
+                          UIApplication.shared.canOpenURL(settingsUrl) else { return }
+                    DispatchQueue.main.async {
+                        UIApplication.shared.open(settingsUrl)
+                    }
+                }
             }
         }
     }

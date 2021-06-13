@@ -8,8 +8,13 @@
 import Foundation
 
 protocol MainViewModelProviding {
+    /// Title of MainViewController
     var title: String { get }
+    
+    /// A value for location or error, binding with controller.
     var getLocationResult: Bindable<Result<Location, LocationServiceError>> { get }
+    
+    /// The action when location me button is tapped.
     func onLocateMeButtonTapped()
 }
 
@@ -19,7 +24,7 @@ struct MainViewModel: MainViewModelProviding {
     let title = Strings.ViewControllers.Main.title
     let getLocationResult = Bindable<Result<Location, LocationServiceError>>()
     
-    private let locationService: LocationServiceProviding = LocationService()
+    private let locationService: LocationServiceProviding = LocationService.shared
     private let router: AppRouterProviding
     private let routingSourceProvider: RoutingSourceProvider
     

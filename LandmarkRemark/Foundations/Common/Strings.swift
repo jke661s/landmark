@@ -8,6 +8,8 @@
 import Foundation
 
 struct Strings {
+    static let empty = ""
+    
     struct Error {
         static let failToGetLocation = "Failed to get location"
     }
@@ -45,8 +47,7 @@ struct Strings {
         
         struct SaveLandmark {
             static let path = "saveLandmark"
+            static let location = "location"
         }
     }
-    
-    static let empty = ""
 }

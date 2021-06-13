@@ -33,6 +33,7 @@
 		C4E4887D2676352700E95615 /* PermissionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4887C2676352700E95615 /* PermissionError.swift */; };
 		C4E4887F26764CA300E95615 /* UniversalLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4887E26764CA300E95615 /* UniversalLinks.swift */; };
 		C4E4888226764DA900E95615 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4888126764DA900E95615 /* CircleButton.swift */; };
+		C4E48884267658A200E95615 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E48883267658A200E95615 /* UserDefaultsExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		C4E4887C2676352700E95615 /* PermissionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionError.swift; sourceTree = "<group>"; };
 		C4E4887E26764CA300E95615 /* UniversalLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalLinks.swift; sourceTree = "<group>"; };
 		C4E4888126764DA900E95615 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		C4E48883267658A200E95615 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				C4E488652675D56200E95615 /* UIApplicationsExtensions.swift */,
+				C4E48883267658A200E95615 /* UserDefaultsExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				C4E488602675CED800E95615 /* SearchLandmarkViewController.swift in Sources */,
 				C4E4886C2676047A00E95615 /* MainViewModel.swift in Sources */,
 				C4E488772676155F00E95615 /* Bindable.swift in Sources */,
+				C4E48884267658A200E95615 /* UserDefaultsExtension.swift in Sources */,
 				C4E488582675CB0800E95615 /* TransitionType.swift in Sources */,
 				C4E488752676105F00E95615 /* Functions.swift in Sources */,
 				C4E4884B26744F7700E95615 /* MainViewController.swift in Sources */,

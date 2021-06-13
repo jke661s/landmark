@@ -8,5 +8,5 @@
 import Foundation
 
 enum UniversalLinks {
-    static let baseURL = "https://landmarkRemark.com"
+    static let baseURL = "https://landmarkRemark.com/"
 }

@@ -14,7 +14,11 @@ struct SaveLandmarkNavigator: NavigatorProviding {
     func navigate(from viewController: UIViewController,
                   using transitionType: TransitionType,
                   parameters: [String : String]) {
-        let destinationViewController = SaveLandmarkViewController()
+        let key = Strings.ViewControllers.SaveLandmark.location
+        guard let location = UserDefaults.standard.retrieveAndDelete(object: Location.self, fromKey: key) else {
+            return
+        }
+        let destinationViewController = SaveLandmarkViewController(location: location)
         navigate(to: destinationViewController,
                  from: viewController,
                  using: transitionType)

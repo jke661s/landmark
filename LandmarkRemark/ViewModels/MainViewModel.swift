@@ -52,8 +52,21 @@ struct MainViewModel: MainViewModelProviding {
     }
     
     func onRemarkButtonTapped() {
-        router.route(to: URL(string: "\(UniversalLinks.baseURL)\(Strings.ViewControllers.SaveLandmark.path)"),
-                     from: routingSourceProvider(),
-                     using: .present)
+        locationService.getLocation { result in
+            switch result {
+            case .success(let location):
+                UserDefaults.standard.save(customObject: location,
+                                           inKey: Strings.ViewControllers.SaveLandmark.location)
+                DispatchQueue.main.async {
+                    router.route(to: URL(string: "\(UniversalLinks.baseURL)\(Strings.ViewControllers.SaveLandmark.path)"),
+                                 from: routingSourceProvider(),
+                                 using: .present)
+                }
+            case .failure(let error):
+                getLocationResult.value = .failure(error)
+            }
+        }
+        
+        
     }
 }

@@ -20,11 +20,12 @@ final class MainViewController: BaseViewController, AlertDisplay {
     }
     
     /// A button to locate the user.
-    private let locateMeButton: UIButton = configure(UIButton(type: .system)) {
-        let configuration = UIImage.SymbolConfiguration(pointSize: 30)
-        let image = UIImage(systemName: "record.circle", withConfiguration: configuration)
-        $0.setImage(image, for: .normal)
+    private let locateMeButton: CircleButton = configure(CircleButton(image: .recordCircle)) {
         $0.addTarget(self, action: #selector(onLocateMeButtonTapped), for: .touchUpInside)
+    }
+    
+    private let remarkButton: CircleButton = configure(CircleButton(image: .rCircle)) {
+        $0.addTarget(self, action: #selector(onRemarkButtonTapped), for: .touchUpInside)
     }
     
     // MARK: - Life cycle
@@ -50,6 +51,7 @@ final class MainViewController: BaseViewController, AlertDisplay {
         view.backgroundColor = .systemBackground
         title = viewModel.title
         view.addSubview(mapView)
+        view.addSubview(remarkButton)
         view.addSubview(locateMeButton)
     }
     
@@ -68,6 +70,14 @@ final class MainViewController: BaseViewController, AlertDisplay {
             locateMeButton.heightAnchor.constraint(equalToConstant: 50),
             locateMeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
             locateMeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
+        ])
+        
+        // remarkButton constraints
+        NSLayoutConstraint.activate([
+            remarkButton.widthAnchor.constraint(equalToConstant: 50),
+            remarkButton.heightAnchor.constraint(equalToConstant: 50),
+            remarkButton.bottomAnchor.constraint(equalTo: locateMeButton.topAnchor, constant: -15),
+            remarkButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
         ])
     }
     
@@ -97,6 +107,10 @@ final class MainViewController: BaseViewController, AlertDisplay {
     // MARK: - Button events
     @objc private func onLocateMeButtonTapped() {
         viewModel.onLocateMeButtonTapped()
+    }
+    
+    @objc private func onRemarkButtonTapped() {
+        viewModel.onRemarkButtonTapped()
     }
 }
  

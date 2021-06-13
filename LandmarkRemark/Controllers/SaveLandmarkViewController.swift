@@ -7,6 +7,6 @@
 
 import UIKit
  
-class SaveLandmarkViewController: UIViewController {
+final class SaveLandmarkViewController: UIViewController {
     
 }

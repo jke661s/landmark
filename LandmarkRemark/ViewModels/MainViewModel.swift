@@ -16,6 +16,9 @@ protocol MainViewModelProviding {
     
     /// The action when location me button is tapped.
     func onLocateMeButtonTapped()
+    
+    /// The action when remark button is tapped.
+    func onRemarkButtonTapped()
 }
 
 struct MainViewModel: MainViewModelProviding {
@@ -46,5 +49,11 @@ struct MainViewModel: MainViewModelProviding {
                 getLocationResult.value = .failure(error)
             }
         }
+    }
+    
+    func onRemarkButtonTapped() {
+        router.route(to: URL(string: "\(UniversalLinks.baseURL)\(Strings.ViewControllers.SaveLandmark.path)"),
+                     from: routingSourceProvider(),
+                     using: .present)
     }
 }

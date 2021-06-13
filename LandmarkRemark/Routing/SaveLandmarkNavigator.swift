@@ -14,8 +14,8 @@ struct SaveLandmarkNavigator: NavigatorProviding {
     func navigate(from viewController: UIViewController,
                   using transitionType: TransitionType,
                   parameters: [String : String]) {
-        let navigationController = UINavigationController(rootViewController: SaveLandmarkViewController())
-        navigate(to: navigationController,
+        let destinationViewController = SaveLandmarkViewController()
+        navigate(to: destinationViewController,
                  from: viewController,
                  using: transitionType)
     }

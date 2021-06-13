@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Bindable<T> {
+final class Bindable<T> {
     typealias Observer = ((T?) -> Void)
     
     var value: T? {

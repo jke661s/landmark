@@ -31,6 +31,8 @@
 		C4E488772676155F00E95615 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E488762676155F00E95615 /* Bindable.swift */; };
 		C4E4887926761FF000E95615 /* AlertDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4887826761FF000E95615 /* AlertDisplay.swift */; };
 		C4E4887D2676352700E95615 /* PermissionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4887C2676352700E95615 /* PermissionError.swift */; };
+		C4E4887F26764CA300E95615 /* UniversalLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4887E26764CA300E95615 /* UniversalLinks.swift */; };
+		C4E4888226764DA900E95615 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4888126764DA900E95615 /* CircleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		C4E488762676155F00E95615 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		C4E4887826761FF000E95615 /* AlertDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplay.swift; sourceTree = "<group>"; };
 		C4E4887C2676352700E95615 /* PermissionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionError.swift; sourceTree = "<group>"; };
+		C4E4887E26764CA300E95615 /* UniversalLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalLinks.swift; sourceTree = "<group>"; };
+		C4E4888126764DA900E95615 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,12 +157,12 @@
 		C4E488512675C95F00E95615 /* Foundations */ = {
 			isa = PBXGroup;
 			children = (
+				C4E4888026764D6D00E95615 /* Views */,
 				C4E488732676105100E95615 /* Utilities */,
 				C4E48870267606C400E95615 /* Common */,
 				C4E4886D2676060200E95615 /* Controllers */,
 				C4E488642675D55200E95615 /* Extensions */,
 				C4E488522675C98000E95615 /* Routing */,
-				C4E4884C26747F6C00E95615 /* LocationServices */,
 			);
 			path = Foundations;
 			sourceTree = "<group>";
@@ -170,6 +174,7 @@
 				C4E488552675CA6800E95615 /* RoutingSource.swift */,
 				C4E488572675CB0800E95615 /* TransitionType.swift */,
 				C4E488592675CC4200E95615 /* NavigatorProviding.swift */,
+				C4E4887E26764CA300E95615 /* UniversalLinks.swift */,
 			);
 			path = Routing;
 			sourceTree = "<group>";
@@ -213,8 +218,17 @@
 			children = (
 				C4E488742676105F00E95615 /* Functions.swift */,
 				C4E488762676155F00E95615 /* Bindable.swift */,
+				C4E4884C26747F6C00E95615 /* LocationServices */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C4E4888026764D6D00E95615 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C4E4888126764DA900E95615 /* CircleButton.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,8 +300,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4E4887F26764CA300E95615 /* UniversalLinks.swift in Sources */,
 				C4E4883326744E0100E95615 /* AppDelegate.swift in Sources */,
 				C4E488542675C99C00E95615 /* AppRouter.swift in Sources */,
+				C4E4888226764DA900E95615 /* CircleButton.swift in Sources */,
 				C4E4884E2674C82800E95615 /* LocationService.swift in Sources */,
 				C4E4886A2675F46900E95615 /* LandmarkDetailsNavigator.swift in Sources */,
 				C4E4887926761FF000E95615 /* AlertDisplay.swift in Sources */,

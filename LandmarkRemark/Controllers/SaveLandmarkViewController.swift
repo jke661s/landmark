@@ -10,9 +10,6 @@ import UIKit
 final class SaveLandmarkViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     // MARK: - Properties
     
-    /// The location to be saved.
-    private var location: Location!
-    
     /// The view model of SaveLandmarkViewController.
     private var viewModel: SaveLandmarkViewModelProviding!
     
@@ -35,14 +32,14 @@ final class SaveLandmarkViewController: BaseViewController, UITableViewDelegate,
         $0.backgroundColor = Colors.disabledButtonBackground
         $0.layer.masksToBounds = true
         $0.layer.cornerRadius = CornerRadius.medium
+        $0.addTarget(self, action: #selector(onSaveButtonTapped), for: .touchUpInside)
     }
     
     // MARK: - Life cycle
     
     init(location: Location) {
         super.init()
-        self.location = location
-        viewModel = SaveLandmarkViewModel()
+        viewModel = SaveLandmarkViewModel(location: location)
     }
     
     override func viewDidLoad() {
@@ -85,6 +82,12 @@ final class SaveLandmarkViewController: BaseViewController, UITableViewDelegate,
             self.saveButton.backgroundColor = isFormValidated ?
                 Colors.enabledButtonBackground : Colors.disabledButtonBackground
         }
+    }
+    
+    // MARK: - Button events
+    
+    @objc private func onSaveButtonTapped() {
+        viewModel.onSaveButtonTapped()
     }
     
     // MARK: - UITableViewDelegate conformance

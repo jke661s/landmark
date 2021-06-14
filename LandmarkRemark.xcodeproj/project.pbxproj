@@ -3,12 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		C490F3EA26773F7800DDFCA0 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = C490F3E926773F7800DDFCA0 /* CornerRadius.swift */; };
 		C490F3EC26773FAE00DDFCA0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C490F3EB26773FAE00DDFCA0 /* Colors.swift */; };
+		C490F3EF26774F9900DDFCA0 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = C490F3EE26774F9900DDFCA0 /* Realm */; };
+		C490F3F126774F9900DDFCA0 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C490F3F026774F9900DDFCA0 /* RealmSwift */; };
+		C490F3F42677522800DDFCA0 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C490F3F32677522800DDFCA0 /* DatabaseService.swift */; };
 		C4E4883326744E0100E95615 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4883226744E0100E95615 /* AppDelegate.swift */; };
 		C4E4883526744E0100E95615 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4883426744E0100E95615 /* SceneDelegate.swift */; };
 		C4E4883C26744E0200E95615 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4E4883B26744E0200E95615 /* Assets.xcassets */; };
@@ -55,6 +58,7 @@
 /* Begin PBXFileReference section */
 		C490F3E926773F7800DDFCA0 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		C490F3EB26773FAE00DDFCA0 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C490F3F32677522800DDFCA0 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		C4E4882F26744E0100E95615 /* LandmarkRemark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LandmarkRemark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4E4883226744E0100E95615 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4E4883426744E0100E95615 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C490F3F126774F9900DDFCA0 /* RealmSwift in Frameworks */,
+				C490F3EF26774F9900DDFCA0 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +206,6 @@
 				C4E48870267606C400E95615 /* Common */,
 				C4E4886D2676060200E95615 /* Controllers */,
 				C4E488642675D55200E95615 /* Extensions */,
-				C4E488522675C98000E95615 /* Routing */,
 			);
 			path = Foundations;
 			sourceTree = "<group>";
@@ -260,9 +265,11 @@
 		C4E488732676105100E95615 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				C4E4884C26747F6C00E95615 /* LocationServices */,
+				C4E488522675C98000E95615 /* Routing */,
 				C4E488742676105F00E95615 /* Functions.swift */,
 				C4E488762676155F00E95615 /* Bindable.swift */,
-				C4E4884C26747F6C00E95615 /* LocationServices */,
+				C490F3F32677522800DDFCA0 /* DatabaseService.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -314,6 +321,10 @@
 			dependencies = (
 			);
 			name = LandmarkRemark;
+			packageProductDependencies = (
+				C490F3EE26774F9900DDFCA0 /* Realm */,
+				C490F3F026774F9900DDFCA0 /* RealmSwift */,
+			);
 			productName = LandmarkRemark;
 			productReference = C4E4882F26744E0100E95615 /* LandmarkRemark.app */;
 			productType = "com.apple.product-type.application";
@@ -341,6 +352,9 @@
 				Base,
 			);
 			mainGroup = C4E4882626744E0100E95615;
+			packageReferences = (
+				C490F3ED26774F9900DDFCA0 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = C4E4883026744E0100E95615 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -403,6 +417,7 @@
 				C4E4884B26744F7700E95615 /* MainViewController.swift in Sources */,
 				C4E4883526744E0100E95615 /* SceneDelegate.swift in Sources */,
 				C4E4885A2675CC4200E95615 /* NavigatorProviding.swift in Sources */,
+				C490F3F42677522800DDFCA0 /* DatabaseService.swift in Sources */,
 				C4E4885C2675CEBA00E95615 /* LandmarkDetailsViewController.swift in Sources */,
 				C4E488632675CF6200E95615 /* SaveLandmarkNavigator.swift in Sources */,
 				C4E488662675D56200E95615 /* UIApplicationsExtensions.swift in Sources */,
@@ -601,6 +616,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C490F3ED26774F9900DDFCA0 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.7.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C490F3EE26774F9900DDFCA0 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C490F3ED26774F9900DDFCA0 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		C490F3F026774F9900DDFCA0 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C490F3ED26774F9900DDFCA0 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C4E4882726744E0100E95615 /* Project object */;
 }

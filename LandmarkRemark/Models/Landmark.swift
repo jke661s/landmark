@@ -6,17 +6,24 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Landmark {
-    let location: Location
-    let description: String
-    let username: String
+@objcMembers class Landmark: Object {
+    dynamic var privateKey: String = UUID().uuidString
+    dynamic var location: Location?
+    dynamic var landMarkDescription: String = ""
+    dynamic var username: String = ""
     
-    init(location: Location,
-         description: String,
-         username: String) {
+    convenience init(location: Location,
+                     description: String,
+                     username: String) {
+        self.init()
         self.location = location
-        self.description = description
+        self.landMarkDescription = description
         self.username = username
+    }
+    
+    override class func primaryKey() -> String? {
+        "privateKey"
     }
 }

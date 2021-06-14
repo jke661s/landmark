@@ -28,6 +28,9 @@ protocol SaveLandmarkViewModelProviding {
     
     /// The value shows whether it is validated to save.
     var isFormValidated: Bindable<Bool> { get set }
+    
+    /// The action when save button is tapped.
+    func onSaveButtonTapped()
 }
 
 class SaveLandmarkViewModel: SaveLandmarkViewModelProviding {
@@ -47,15 +50,21 @@ class SaveLandmarkViewModel: SaveLandmarkViewModelProviding {
     }
     var isFormValidated: Bindable<Bool> = Bindable<Bool>()
     
+    private let location: Location!
+    private let db: DatabaseServiceProviding!
+    
     // MARK: - Life cycle
     
-    init() {
+    init(location: Location,
+         db: DatabaseServiceProviding = DatabaseService.shared) {
         let usernameSection = SaveLandmarkSection(title: Strings.Title.username,
                                                   items: [InputUsernameItemViewModel()])
         let descriptionSection = SaveLandmarkSection(title: Strings.Title.description,
                                                      items: [InputDescriptionItemViewModel()])
         sections = [usernameSection,
                     descriptionSection]
+        self.location = location
+        self.db = db
     }
     
     // MARK: - Private functions
@@ -63,6 +72,15 @@ class SaveLandmarkViewModel: SaveLandmarkViewModelProviding {
     private func validateForm() {
         isFormValidated.value = (username == Strings.empty ||
                                     description == Strings.empty) ? false : true
+    }
+    
+    // MARK: - SaveLandmarkViewModelProviding conformance
+    
+    func onSaveButtonTapped() {
+        let landmark = Landmark(location: location,
+                                description: description,
+                                username: username)
+        db.save(landmark)
     }
 }
 

@@ -45,11 +45,6 @@ class SaveLandmarkViewModel: SaveLandmarkViewModelProviding {
             validateForm()
         }
     }
-    var location: String = Strings.empty {
-        didSet {
-            validateForm()
-        }
-    }
     var isFormValidated: Bindable<Bool> = Bindable<Bool>()
     
     // MARK: - Life cycle
@@ -67,8 +62,7 @@ class SaveLandmarkViewModel: SaveLandmarkViewModelProviding {
     
     private func validateForm() {
         isFormValidated.value = (username == Strings.empty ||
-                                    description == Strings.empty ||
-                                    location == Strings.empty) ? false : true
+                                    description == Strings.empty) ? false : true
     }
 }
 

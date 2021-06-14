@@ -62,10 +62,10 @@ final class SaveLandmarkViewController: BaseViewController, UITableViewDelegate,
     private func setupConstraints() {
         // save button constraints
         NSLayoutConstraint.activate([
-            saveButton.heightAnchor.constraint(equalToConstant: 50),
-            saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 14),
-            saveButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -14),
-            saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -14)
+            saveButton.heightAnchor.constraint(equalToConstant: ConstraintConstants.CircleButton.height),
+            saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: ConstraintConstants.Padding.medium),
+            saveButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -ConstraintConstants.Padding.medium),
+            saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -ConstraintConstants.Padding.medium)
         ])
         
         // table view constraints
@@ -108,7 +108,7 @@ final class SaveLandmarkViewController: BaseViewController, UITableViewDelegate,
     // MARK: - UITableViewDelegate conformance
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        44
+        ConstraintConstants.TableView.estimatedRowHeight
     }
     
     // MARK: - UITableViewDataSource conformance

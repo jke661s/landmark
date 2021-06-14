@@ -19,7 +19,9 @@ struct SaveLandmarkNavigator: NavigatorProviding {
             return
         }
         let destinationViewController = SaveLandmarkViewController(location: location)
-        navigate(to: destinationViewController,
+        let navigationController = UINavigationController(rootViewController: destinationViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        navigate(to: navigationController,
                  from: viewController,
                  using: transitionType)
     }

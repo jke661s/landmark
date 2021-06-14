@@ -14,6 +14,9 @@ enum SaveLandmarkCellType: String {
 }
 
 protocol SaveLandmarkViewModelProviding {
+    /// A value shows whether the controller will be dismissed.
+    var dismissing: Bindable<Bool> { get }
+    
     /// The title of SaveLandmarkViewController.
     var title: String { get }
     
@@ -35,7 +38,7 @@ protocol SaveLandmarkViewModelProviding {
 
 class SaveLandmarkViewModel: SaveLandmarkViewModelProviding {
     // MARK: - Properties
-    
+    var dismissing: Bindable<Bool> = Bindable<Bool>()
     let title = Strings.Title.saveLandmark
     var sections: [SaveLandmarkSection]
     var username: String = Strings.empty {
@@ -81,6 +84,7 @@ class SaveLandmarkViewModel: SaveLandmarkViewModelProviding {
                                 description: description,
                                 username: username)
         db.save(landmark)
+        dismissing.value = true
     }
 }
 

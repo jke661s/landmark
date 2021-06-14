@@ -8,15 +8,16 @@
 import UIKit
 import MapKit
 
-final class MainViewController: BaseViewController, AlertDisplay {
+final class MainViewController: BaseViewController, AlertDisplay, MKMapViewDelegate {
     // MARK: - Properties
     
     /// MainViewController viewModel.
     private var viewModel: MainViewModelProviding!
     
     /// A map view displaying the user's location.
-    private let mapView: MKMapView = configure(MKMapView()) {
+    private lazy var mapView: MKMapView = configure(MKMapView()) {
         $0.showsUserLocation = true
+        $0.delegate = self
     }
     
     /// A button to locate the user.
@@ -43,6 +44,11 @@ final class MainViewController: BaseViewController, AlertDisplay {
         setupViews()
         setupConstraints()
         setupBindings()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.viewWillAppear()
     }
     
     // MARK: - Private functions
@@ -105,6 +111,30 @@ final class MainViewController: BaseViewController, AlertDisplay {
                 }
             }
         }
+        
+        // Update the map view when data source got updated.
+        viewModel.landmarkDataSource.bind { [weak self] landmarks in
+            guard let self = self, let landmarks = landmarks else { return }
+            self.removeAllAnnotation()
+            landmarks.forEach {
+                self.addAnnotation($0)
+            }
+        }
+    }
+    
+    private func addAnnotation(_ landmark: Landmark) {
+        let annotation = MKPointAnnotation()
+//        annotation.description = landmark.description
+        annotation.subtitle = landmark.username
+        annotation.title = landmark.landMarkDescription
+        annotation.coordinate = CLLocationCoordinate2D(latitude: landmark.location?.latitude ?? 0, longitude: landmark.location?.longitude ?? 0)
+        mapView.addAnnotation(annotation)
+    }
+    
+    private func removeAllAnnotation() {
+        for annotation in self.mapView.annotations {
+            self.mapView.removeAnnotation(annotation)
+        }
     }
     
     // MARK: - Button events
@@ -114,6 +144,22 @@ final class MainViewController: BaseViewController, AlertDisplay {
     
     @objc private func onRemarkButtonTapped() {
         viewModel.onRemarkButtonTapped()
+    }
+    
+    // MARK: - MKMapViewDelegate conformance
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard annotation is MKPointAnnotation else { return nil }
+
+        let identifier = "Annotation"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView!.canShowCallout = true
+        } else {
+            annotationView!.annotation = annotation
+        }
+        return annotationView
     }
 }
  

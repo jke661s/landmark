@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol MainViewModelProviding {
     /// Title of MainViewController
@@ -14,11 +15,17 @@ protocol MainViewModelProviding {
     /// A value for location or error, binding with controller.
     var getLocationResult: Bindable<Result<Location, LocationServiceError>> { get }
     
+    /// The landmark data source to be displayed in map view.
+    var landmarkDataSource: Bindable<[Landmark]> { get }
+    
     /// The action when location me button is tapped.
     func onLocateMeButtonTapped()
     
     /// The action when remark button is tapped.
     func onRemarkButtonTapped()
+    
+    /// The function gets called when the view will appear.
+    func viewWillAppear()
 }
 
 struct MainViewModel: MainViewModelProviding {
@@ -26,19 +33,29 @@ struct MainViewModel: MainViewModelProviding {
     
     let title = Strings.ViewControllers.Main.title
     let getLocationResult = Bindable<Result<Location, LocationServiceError>>()
+    var landmarkDataSource = Bindable<[Landmark]>()
     
+    private let db: DatabaseServiceProviding!
     private let locationService: LocationServiceProviding = LocationService.shared
     private let router: AppRouterProviding
     private let routingSourceProvider: RoutingSourceProvider
     
     // MARK: - Life cycle
     
-    init(router: AppRouterProviding, routingSourceProvider: @escaping RoutingSourceProvider) {
+    init(router: AppRouterProviding,
+         routingSourceProvider: @escaping RoutingSourceProvider,
+         database: DatabaseServiceProviding = DatabaseService()) {
         self.router = router
         self.routingSourceProvider = routingSourceProvider
+        self.db = database
     }
     
     // MARK: - MainViewModelProviding conformance
+    
+    func viewWillAppear() {
+        guard let result = db.retrieve(object: Landmark.self) else { return }
+        landmarkDataSource.value = Array(result)
+    }
     
     func onLocateMeButtonTapped() {
         locationService.getLocation { result in

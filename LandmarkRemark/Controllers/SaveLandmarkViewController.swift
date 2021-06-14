@@ -52,6 +52,8 @@ final class SaveLandmarkViewController: BaseViewController, UITableViewDelegate,
     // MARK: - Private functions
     
     private func setupViews() {
+        title = viewModel.title
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(onCancelTapped))
         view.backgroundColor = .systemBackground
         view.addSubview(tableView)
         view.addSubview(saveButton)
@@ -76,11 +78,20 @@ final class SaveLandmarkViewController: BaseViewController, UITableViewDelegate,
     }
     
     private func setupBindings() {
+        // Updates the button status
         viewModel.isFormValidated.bind { [weak self] isFormValidated in
             guard let self = self, let isFormValidated = isFormValidated else { return }
             self.saveButton.isEnabled = isFormValidated
             self.saveButton.backgroundColor = isFormValidated ?
                 Colors.enabledButtonBackground : Colors.disabledButtonBackground
+        }
+        
+        // Dismiss the controller
+        viewModel.dismissing.bind { [weak self] dismissing in
+            guard let self = self,
+                  let dismissing = dismissing,
+                  dismissing else { return }
+            self.dismiss(animated: true)
         }
     }
     
@@ -88,6 +99,10 @@ final class SaveLandmarkViewController: BaseViewController, UITableViewDelegate,
     
     @objc private func onSaveButtonTapped() {
         viewModel.onSaveButtonTapped()
+    }
+    
+    @objc private func onCancelTapped() {
+        dismiss(animated: true)
     }
     
     // MARK: - UITableViewDelegate conformance

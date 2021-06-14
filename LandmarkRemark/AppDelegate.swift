@@ -18,9 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 private extension AppDelegate {
     func onLaunch() {
         let router: AppRouterProviding = AppRouter.shared
-        
-        router.register(path: Strings.ViewControllers.SaveLandmark.path, navigator: SaveLandmarkNavigator())
-        router.register(path: Strings.ViewControllers.LandmarkDetails.path, navigator: LandmarkDetailsNavigator())
+        router.register(path: Strings.ViewControllers.Main.path,
+                        navigator: MainNavigator())
+        router.register(path: Strings.ViewControllers.SaveLandmark.path,
+                        navigator: SaveLandmarkNavigator())
+        router.register(path: Strings.ViewControllers.LandmarkDetails.path,
+                        navigator: LandmarkDetailsNavigator())
     }
 }
 

@@ -49,6 +49,7 @@ final class MainViewController: BaseViewController, AlertDisplay {
     
     private func setupViews() {
         view.backgroundColor = .systemBackground
+        navigationController?.isNavigationBarHidden = true
         title = viewModel.title
         view.addSubview(mapView)
         view.addSubview(remarkButton)
@@ -66,18 +67,20 @@ final class MainViewController: BaseViewController, AlertDisplay {
         
         // locateMeButton constraints
         NSLayoutConstraint.activate([
-            locateMeButton.widthAnchor.constraint(equalToConstant: 50),
-            locateMeButton.heightAnchor.constraint(equalToConstant: 50),
-            locateMeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
-            locateMeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
+            locateMeButton.widthAnchor.constraint(equalToConstant: ConstraintConstants.CircleButton.width),
+            locateMeButton.heightAnchor.constraint(equalToConstant: ConstraintConstants.CircleButton.height),
+            locateMeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                                                   constant: -ConstraintConstants.Padding.medium),
+            locateMeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                     constant: -ConstraintConstants.Padding.medium)
         ])
         
         // remarkButton constraints
         NSLayoutConstraint.activate([
-            remarkButton.widthAnchor.constraint(equalToConstant: 50),
-            remarkButton.heightAnchor.constraint(equalToConstant: 50),
-            remarkButton.bottomAnchor.constraint(equalTo: locateMeButton.topAnchor, constant: -15),
-            remarkButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
+            remarkButton.widthAnchor.constraint(equalToConstant: ConstraintConstants.CircleButton.width),
+            remarkButton.heightAnchor.constraint(equalToConstant: ConstraintConstants.CircleButton.width),
+            remarkButton.bottomAnchor.constraint(equalTo: locateMeButton.topAnchor, constant: -ConstraintConstants.Padding.medium),
+            remarkButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -ConstraintConstants.Padding.medium)
         ])
     }
     

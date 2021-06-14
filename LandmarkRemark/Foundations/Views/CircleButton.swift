@@ -17,7 +17,7 @@ final class CircleButton: UIButton {
     
     init(image: CircleButtonImage) {
         super.init(frame: .zero)
-        let configuration = UIImage.SymbolConfiguration(pointSize: 50)
+        let configuration = UIImage.SymbolConfiguration(pointSize: ConstraintConstants.CircleButton.imagePointSize)
         let image = UIImage(systemName: image.rawValue,
                             withConfiguration: configuration)
         setImage(image, for: .normal)

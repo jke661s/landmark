@@ -37,6 +37,7 @@ struct Strings {
     
     struct ViewControllers {
         struct Main {
+            static let path = "Main"
             static let title = "Home"
         }
         

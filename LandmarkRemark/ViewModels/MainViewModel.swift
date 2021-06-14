@@ -83,7 +83,5 @@ struct MainViewModel: MainViewModelProviding {
                 getLocationResult.value = .failure(error)
             }
         }
-        
-        
     }
 }

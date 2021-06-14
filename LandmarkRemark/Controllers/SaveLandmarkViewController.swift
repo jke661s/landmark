@@ -29,7 +29,7 @@ final class SaveLandmarkViewController: BaseViewController, UITableViewDelegate,
     
     /// The button to save landmark
     private let saveButton: UIButton = configure(UIButton(type: .system)) {
-        $0.setTitle("Save", for: .normal)
+        $0.setTitle(Strings.Title.save, for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.isEnabled = false
         $0.backgroundColor = Colors.disabledButtonBackground

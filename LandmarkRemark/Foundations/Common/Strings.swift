@@ -23,6 +23,18 @@ struct Strings {
         static let ok = "OK"
     }
     
+    struct Title {
+        static let save = "Save"
+        static let saveLandmark = "Save Landmark"
+        static let username = "Username"
+        static let description = "Description"
+    }
+    
+    struct Placeholder {
+        static let enterUserName = "Enter username"
+        static let enterDescription = "Enter description"
+    }
+    
     struct Alert {
         struct Generic {
             static let title = "Oops!"

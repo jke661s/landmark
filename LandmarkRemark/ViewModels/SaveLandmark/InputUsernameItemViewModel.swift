@@ -17,5 +17,5 @@ struct InputUsernameItemViewModel: SaveLandmarkItemViewModelProviding {
         }
     }
     let type: SaveLandmarkCellType = .inputUsername
-    let placeholder: String = "Enter username"
+    let placeholder: String = Strings.Placeholder.enterUserName
 }

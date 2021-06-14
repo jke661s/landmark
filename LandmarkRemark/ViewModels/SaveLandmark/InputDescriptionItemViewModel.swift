@@ -17,5 +17,5 @@ class InputDescriptionItemViewModel: SaveLandmarkItemViewModelProviding {
         }
     }
     let type: SaveLandmarkCellType = .inputDescription
-    let placeholder: String = "Enter description"
+    let placeholder: String = Strings.Placeholder.enterDescription
 }

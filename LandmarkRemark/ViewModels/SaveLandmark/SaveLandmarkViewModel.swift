@@ -33,7 +33,7 @@ protocol SaveLandmarkViewModelProviding {
 class SaveLandmarkViewModel: SaveLandmarkViewModelProviding {
     // MARK: - Properties
     
-    let title = "Save Landmark"
+    let title = Strings.Title.saveLandmark
     var sections: [SaveLandmarkSection]
     var username: String = Strings.empty {
         didSet {
@@ -50,9 +50,9 @@ class SaveLandmarkViewModel: SaveLandmarkViewModelProviding {
     // MARK: - Life cycle
     
     init() {
-        let usernameSection = SaveLandmarkSection(title: "Username",
+        let usernameSection = SaveLandmarkSection(title: Strings.Title.username,
                                                   items: [InputUsernameItemViewModel()])
-        let descriptionSection = SaveLandmarkSection(title: "Description",
+        let descriptionSection = SaveLandmarkSection(title: Strings.Title.description,
                                                      items: [InputDescriptionItemViewModel()])
         sections = [usernameSection,
                     descriptionSection]

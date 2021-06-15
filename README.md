@@ -34,7 +34,8 @@ I implemented the project during the long weekend, one day for foundations and l
 ### Cloning the Repository
 
 To clone the repo from Github:
-``` https://github.com/jke661s/landmark.git
+``` 
+https://github.com/jke661s/landmark.git
 ```
 #### Installing Dependencies
 
@@ -61,13 +62,16 @@ A `ViewModel` acts as a state machine for its corresponding `View/ ViewControlle
 
 Moving presentation logic from the `ViewController` to the `ViewModel ` allows us to unit-test the presentation logic without triggering any side-effects from `UIKit`. This is because a `UIViewController`is tightly coupled with its `UIView`, which means we cannot unit test a `UIViewController` without instantiating its `UIView` and this causes all sorts of headaches when unit testing. `ViewModel` holds a weak `RoutingSource` for routing. `RoutingSource` is used to decouple the `ViewController`.
 
-### Routers
-
-A `Router` is responsible for transitioning one screen to another. It registers `Navigator`s and exposes routing functions to the `ViewModel`. Upon being invoked by the `ViewModel`, from the url provided, it gets the proper `Navigator` and performs the view transition to the next screen.
-
 ### `Model`
 
 `Model`s are Swift structs which contains data the app needs. 
+
+### `AppRouter`
+
+An `AppRouter` is responsible for transitioning one screen to another. It registers `Navigator`s and exposes routing functions to the `ViewModel`. Upon being invoked by the `ViewModel`, from the url provided, it gets the proper `Navigator` and performs the view transition to the next screen.
+
+### `LocationService`
+`LocationService` is responsible for fetching users' current locations.
 
 ## Unit Tests
 

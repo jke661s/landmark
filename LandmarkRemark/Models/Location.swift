@@ -10,7 +10,6 @@ import CoreLocation
 import RealmSwift
 
 @objcMembers class Location: Object, Codable {
-    dynamic var privateKey: String = UUID().uuidString
     dynamic var latitude: Double = 0.0
     dynamic var longitude: Double = 0.0
     dynamic var accuracy: Double = 0.0
@@ -22,7 +21,9 @@ import RealmSwift
         self.accuracy = cLLocation.horizontalAccuracy
     }
     
-    override class func primaryKey() -> String? {
-        "privateKey"
+    static func ==(lhs: Location, rhs: Location) -> Bool {
+        lhs.latitude == rhs.latitude
+            && lhs.longitude == rhs.longitude
+            && lhs.accuracy == rhs.accuracy
     }
 }

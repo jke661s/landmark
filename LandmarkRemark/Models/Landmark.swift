@@ -9,7 +9,6 @@ import Foundation
 import RealmSwift
 
 @objcMembers class Landmark: Object {
-    dynamic var privateKey: String = UUID().uuidString
     dynamic var location: Location?
     dynamic var landMarkDescription: String = ""
     dynamic var username: String = ""
@@ -21,9 +20,5 @@ import RealmSwift
         self.location = location
         self.landMarkDescription = description
         self.username = username
-    }
-    
-    override class func primaryKey() -> String? {
-        "privateKey"
     }
 }

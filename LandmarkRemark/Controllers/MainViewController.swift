@@ -31,10 +31,9 @@ final class MainViewController: BaseViewController, AlertDisplay, MKMapViewDeleg
     
     // MARK: - Life cycle
     
-    init(router: AppRouterProviding = AppRouter.shared) {
+    override init() {
         super.init()
-        viewModel = MainViewModel(router: router,
-                                  routingSourceProvider: { [weak self] in
+        viewModel = MainViewModel(routingSourceProvider: { [weak self] in
             self
         })
     }

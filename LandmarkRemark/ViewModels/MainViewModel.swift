@@ -36,17 +36,19 @@ struct MainViewModel: MainViewModelProviding {
     var landmarkDataSource = Bindable<[Landmark]>()
     
     private let db: DatabaseServiceProviding!
-    private let locationService: LocationServiceProviding = LocationService.shared
+    private let locationService: LocationServiceProviding
     private let router: AppRouterProviding
     private let routingSourceProvider: RoutingSourceProvider
     
     // MARK: - Life cycle
     
-    init(router: AppRouterProviding,
+    init(router: AppRouterProviding = AppRouter.shared,
+         locationService: LocationServiceProviding = LocationService.shared,
          routingSourceProvider: @escaping RoutingSourceProvider,
          database: DatabaseServiceProviding = DatabaseService()) {
         self.router = router
         self.routingSourceProvider = routingSourceProvider
+        self.locationService = locationService
         self.db = database
     }
     
